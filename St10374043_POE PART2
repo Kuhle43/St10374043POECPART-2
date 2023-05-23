@@ -1,0 +1,107 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package mainprogram;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+/**
+ *
+ * @author lab_services_student
+ */
+public class MainProgram {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+         starter();
+    }
+    private static void starter(){
+      Scanner scanner = new Scanner(System.in);
+        
+       int selection = JOptionPane.showOptionDialog(null,"Register Account","Menu",JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE,null,new String[]{ "Register", "Exit"},"Register");
+    
+     if (selection ==0){
+            Registration.RegisterUser(scanner);
+    }else{
+        System.exit(0);
+        
+        
+    }
+}
+
+public static void prompt(){
+    
+String Firstname,Surnme,userName,password ="";
+Registration getMethods = new Registration();
+
+Firstname = JOptionPane.showInputDialog("Enter your First Name:");
+        String Surname = JOptionPane.showInputDialog("Enter your last name:");
+
+        getMethods = new Registration(Firstname,Surname);
+        
+        userName = JOptionPane.showInputDialog("Enter your username");
+        while(!getMethods.checkUserName(userName)){
+            userName = JOptionPane.showMessageDialog(null,"The userName entered is invalid.");
+            userName = JOptionPane.showInputDialog("Enter your username");
+        }
+}
+
+JOptionPane.showMessageDialog(null,"UserName successfully entered.");
+
+
+Password = JOptionPane.showInputDialog("Enter your Passowrd:");
+while(!getMethods.passwordComplexity(Password)){
+    JOptionPane.showMessageDialog(null,"The password entered is invalid.");
+    Password = JOptionPane.showInputDialog("Enter your Passoword:");
+}
+
+int selection = JOptionPane.showOptionDialog(null,"Press(1) to Sign in","Menu",JOptionPane.YES_NO_OPTION,JOptionPane.showInputDialog.PLAIN_MESSAGE,null,new String[]{"LoginUser","Exit"},"LoginUser");
+
+
+if(selection ==0){
+    String logUser,logPassword;
+    List<String>List = new ArrayList<>();
+    
+    JOptionPane.showMessageDialog(null,"----------Login HERE:----------\n" + "Please enter the following to Login.");
+    
+    logUser = JOptionPane.showInputDialog("Enter your username:");
+    logPassword = JOptionPane.showInputDialog("Enter your Password:");
+    
+    while(!getMethods.LOGINUser(logUser,logPassword)){
+      JOptionPane.showMessageDialog(null,"The username or password entered is invalid.");
+    }
+}
+
+int selection =JOptionPane.showOptionDialog("Press (1) to Sign in","Menu",JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE,NULL,NEW String[]("LoginUser","Exit"),"LoginUser");
+
+if (selection == 0){
+    String logUser, logPassword;
+    List<String>List = new ArrayList<>();
+    
+    JOptionPane.showMessageDialog(null,"----------Login HERE:----------\n"+"Please enter the following to Login.");
+    
+    logUser = JOptionPane.showInputDialog("Enter your username:");
+    logPassword = JOptionPane.showInputDialog("Enter your Password:");
+
+    while (!getMethods.LOGINUser(logUser,logPassowrd)){
+        JOptionPane.showMessageDialog(null,"The username or password entered is invalid.");
+       logUser = JOptionPane.showInputDialog("Enter your username:");
+       logPassword = JOptionPane.showInputDialog("Enter your password:");
+       
+    }
+    JOptionPane.showMessageDialog(null,"End");
+}else{
+    Quit();
+    System.exit(0);
+    }
+}
+
+private static void Quit(){
+JOptionPane.showInputDialog("Enter any key to exit the program");
+    }
+
+}
